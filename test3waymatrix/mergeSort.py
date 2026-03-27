@@ -1,6 +1,7 @@
 #MergeSort
 #Haley Gray
-#
+#Ivan Barragan
+#Reuben Johnson
 
 
 #03/26/2026
