@@ -3,11 +3,11 @@ import numpy as np
 import json
 import newInsertionSort  # your import
 import mergeSort
+import numba
 
 # Your merge and mergeSort functions here...
-
 def run_experiment():
-    sizes = [2**30]
+    sizes = [2**20, 2**21, 2**22, 2**23, 2**24, 2**25, 2**26, 2**27, 2**28, 2**29, 2**30]
     k_values = [16]
     trials = 2
     
@@ -55,7 +55,7 @@ for size in [500, 2000, 8000]:
 
 plt.xlabel('Threshold Value (k)', fontsize=12)
 plt.ylabel('Average Runtime (ms)', fontsize=12)
-plt.title('Hybrid Merge Sort: Runtime vs Threshold Value', fontsize=14)
+plt.title('3-way Merge Sort: Runtime', fontsize=14)
 plt.xscale('log', base=2)  # Log scale since k doubles
 plt.xticks(k_values, k_values)
 plt.grid(True, alpha=0.3)

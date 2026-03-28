@@ -8,11 +8,13 @@
 import newInsertionSort
 import numpy as np
 import json
+import numba #C  compile first
 #version switches to Insertion on subarrays of size < 16
 
 #merges 3 sub arrays together
 #when finished merging,
 #merged subarr indexes == [start, end]
+@numba.njit
 def merge(arr, start, first3rd, three4ths, end):
     #lengths of each subarray
     lLength = first3rd - start + 1
@@ -95,6 +97,7 @@ def merge(arr, start, first3rd, three4ths, end):
 #then merges the subarrays back into main arr
 #uses temp L&R arrays when merging
 #to prevent loss of elements
+@numba.njit
 def mergeSort(arr, start, end):
     #switch to insertion sort on this subarray
     #if subarray size is < k
@@ -125,15 +128,6 @@ def mergeSort(arr, start, end):
 # Load array from file
 #with open('array.json', 'r') as f:
     #loaded_list = json.load(f)
-
-xs = np.random.uniform(10, 100, 15) 
-ys = np.copy(xs)
-
-ys2 = sorted(ys)
-#loaded_list
-mergeSort(xs,0,len(xs)-1)
-print(xs)
-print(ys2)
 
 
 

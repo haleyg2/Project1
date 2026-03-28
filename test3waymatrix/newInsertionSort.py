@@ -1,9 +1,11 @@
+import numba
 #Insertion Sort
 #we have a key i (which starts at second element)
 #we compare our key to everything before it.
 #until we find an element where key > xs[j] <-> while (key < xs[j])
 #order out of bounds
 #we move xs[j] to the right by 1
+@numba.njit
 def insertionSort(xs,start,end):
     for i in range(start+1, start + (end - start + 1)):
         key = xs[i]
@@ -18,6 +20,7 @@ def insertionSort(xs,start,end):
 #lin searches for item in array xs
 #assuming xs contains numbers
 #returns index of found item
+@numba.njit
 def linearSearch(xs, item):
     for i in range(0, len(xs)):
         if (xs[i] == item):
