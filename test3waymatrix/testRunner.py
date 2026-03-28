@@ -22,8 +22,8 @@ def run_experiment():
             
             for trial in range(trials):
                 # Generate fresh random array
-                arr = np.random.uniform(1, 1001, size)
-                #arr = np.random.randint(1, 1001, size)
+                #arr = np.random.uniform(1, 1001, size)
+                arr = np.random.randint(1, 1001, size)
                 
                 # Time the sort
                 start = time.time()
