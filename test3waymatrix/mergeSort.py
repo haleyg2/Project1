@@ -1,4 +1,4 @@
-#MergeSort
+#MergeSort (3 way version) (part 1 of project 1 CS361L)
 #Haley Gray
 #Ivan Barragan
 #Reuben Johnson
@@ -20,9 +20,9 @@ def merge(arr, start, first3rd, three4ths, end):
     rLength = end - three4ths + 1
 
     #temp arrays
-    L = [0] * lLength
-    M = [0] * midLength
-    R = [0] * rLength
+    L = np.empty(lLength, dtype=arr.dtype)
+    M = np.empty(midLength, dtype=arr.dtype)
+    R = np.empty(rLength, dtype=arr.dtype)
     #copy into temp arrays from main arr
     for i in range(lLength):
         L[i] = arr[start + i]
@@ -36,10 +36,10 @@ def merge(arr, start, first3rd, three4ths, end):
     m = 0
     k = start
     while (i < lLength and j < rLength and m < midLength):
-        if (L[i] <= R[j] and L[i] <= M[m]):
+        if (L[i] < R[j] and L[i] < M[m]):
             arr[k] = L[i]
             i += 1
-        elif (M[m] <= L[i] and M[m] <= R[j]):
+        elif (M[m] < L[i] and M[m] < R[j]):
             arr[k] = M[m]
             m += 1
         else:
@@ -51,7 +51,7 @@ def merge(arr, start, first3rd, three4ths, end):
 
     #ran out of things from M
     while (i < lLength and j < rLength):
-        if (L[i] <= R[j]):
+        if (L[i] < R[j]):
             arr[k] = L[i]
             i += 1
         else:
@@ -60,7 +60,7 @@ def merge(arr, start, first3rd, three4ths, end):
         k += 1
     #ran out of things from R
     while (i < lLength and m < midLength):
-        if (L[i] <= M[m]):
+        if (L[i] < M[m]):
             arr[k] = L[i]
             i += 1
         else:
@@ -69,7 +69,7 @@ def merge(arr, start, first3rd, three4ths, end):
         k += 1
     #ran out of things from L
     while (j < rLength and m < midLength):
-        if (M[m] <= R[j]):
+        if (M[m] < R[j]):
             arr[k] = M[m]
             m += 1
         else:
@@ -126,7 +126,7 @@ def mergeSort(arr, start, end):
 #with open('array.json', 'r') as f:
     #loaded_list = json.load(f)
 
-xs = np.random.choice(range(1,20), 15, replace=True)
+xs = np.random.uniform(10, 100, 15) 
 ys = np.copy(xs)
 
 ys2 = sorted(ys)
