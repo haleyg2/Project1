@@ -1,5 +1,7 @@
 import numba
 #Insertion Sort
+#Haley Gray
+
 #we have a key i (which starts at second element)
 #we compare our key to everything before it.
 #until we find an element where key > xs[j] <-> while (key < xs[j])
