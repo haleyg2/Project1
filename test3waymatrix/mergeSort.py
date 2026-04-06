@@ -8,7 +8,7 @@
 import newInsertionSort
 import numpy as np
 import json
-import numba #C  compile first
+import numba #better interpreter
 #version switches to Insertion on subarrays of size < 16
 
 #merges 3 sub arrays together
